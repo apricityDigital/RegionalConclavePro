@@ -1987,8 +1987,9 @@ footer {
 
     /* Speaker cards responsive */
     .speakers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+        gap: 1rem;
         padding: 0 0.5rem;
     }
 
@@ -2279,8 +2280,10 @@ footer {
 
     /* Speaker cards extra small screen */
     .speakers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Force exactly 2 columns */
+        gap: 0.8rem;
+        padding: 0 0.5rem;
     }
 
     .speaker-image {
@@ -2378,6 +2381,45 @@ footer {
         width: 36px;
         height: 36px;
         font-size: 1.2rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .speakers-grid {
+        gap: 0.5rem;
+        padding: 0 0.3rem;
+    }
+
+    .speaker-image {
+        height: 140px;
+    }
+
+    .speaker-info {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .speaker-info h3 {
+        font-size: 0.9rem;
+    }
+
+    .speaker-title {
+        font-size: 0.7rem;
+    }
+
+    .speaker-bio {
+        font-size: 0.7rem;
+    }
+
+    .speaker-social {
+        padding: 0 0.8rem 0.6rem;
+        gap: 0.6rem;
+    }
+
+    .social-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
     }
 }
 

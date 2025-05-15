@@ -367,6 +367,7 @@
     cursor: pointer;
     transition: var(--transition);
     aspect-ratio: 4/3;
+    position: relative;
 }
 
 .gallery-item:hover {
@@ -399,6 +400,8 @@
     font-size: 0.9rem;
     font-weight: 500;
 }
+
+
 
 /* FAQ Section */
 .faq {
@@ -858,6 +861,12 @@
 }
 
 @media (max-width: 768px) {
+    /* Gallery styles for tablets */
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+        gap: 1rem;
+    }
+
     .speakers-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
@@ -897,24 +906,30 @@
 }
 
 @media (max-width: 576px) {
+    /* Gallery styles for mobile */
     .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Force exactly 2 columns */
+        gap: 0.8rem;
         padding: 0 0.5rem;
     }
 
     .gallery-item {
         aspect-ratio: 1/1;
+        margin-bottom: 0;
     }
 
     .gallery-image-placeholder i {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .gallery-image-placeholder span {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        text-align: center;
+        padding: 0 0.3rem;
     }
 
+    /* Other mobile styles */
     .countdown-item {
         min-width: 60px;
     }
@@ -942,5 +957,22 @@
 
     .faq-question h3 {
         font-size: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .gallery-container {
+        gap: 0.5rem;
+        padding: 0 0.3rem;
+    }
+
+    .gallery-image-placeholder i {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .gallery-image-placeholder span {
+        font-size: 0.7rem;
     }
 }
