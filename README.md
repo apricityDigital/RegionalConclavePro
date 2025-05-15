@@ -11,7 +11,7 @@ A modern, responsive website for the Regional Conclave event, featuring an elega
 - **Accessibility**: ARIA attributes and keyboard navigation support for better accessibility
 
 ### Interactive Elements
-- **Draggable Quick Navigation**: Floating navigation menu that can be positioned anywhere on the screen
+- **Quick Navigation**: Floating navigation menu for easy access to different sections
 - **Interactive Gallery**: Two-column responsive gallery layout for mobile devices
 - **Animated Countdown**: Visual countdown timer to the event date
 - **Smooth Scrolling**: Enhanced page navigation with smooth scrolling
@@ -56,7 +56,6 @@ A modern, responsive website for the Regional Conclave event, featuring an elega
 - **Content**: Adjusted spacing and font sizes for mobile readability
 
 ### Touch Interactions
-- **Draggable Elements**: Touch support for draggable quick navigation
 - **Tap Targets**: Appropriately sized tap targets for mobile users
 - **Swipe Support**: Touch gestures for interactive elements
 

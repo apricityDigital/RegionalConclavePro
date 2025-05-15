@@ -54,7 +54,7 @@
         </button>
         <div class="quick-jump-dropdown">
             <div class="quick-jump-header">
-                <span>Quick Navigation <i class="fas fa-grip-lines drag-handle" title="Drag to move"></i></span>
+                <span>Quick Navigation</span>
                 <button class="quick-jump-close" aria-label="Close quick navigation">
                     <i class="fas fa-times"></i>
                 </button>
@@ -637,140 +637,12 @@
         // Initialize on DOM Content Loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Enhanced Quick Jump Menu
-            const quickJump = document.querySelector('.quick-jump');
             const quickJumpButton = document.querySelector('.quick-jump-button');
             const quickJumpDropdown = document.querySelector('.quick-jump-dropdown');
             const quickJumpClose = document.querySelector('.quick-jump-close');
 
-            // Load saved position from localStorage
-            function loadSavedPosition() {
-                const savedPosition = localStorage.getItem('quickJumpPosition');
-                if (savedPosition) {
-                    try {
-                        const position = JSON.parse(savedPosition);
-                        quickJump.style.bottom = position.bottom + 'px';
-                        quickJump.style.right = position.right + 'px';
-                    } catch (e) {
-                        console.error('Error loading saved position:', e);
-                    }
-                }
-            }
-
-            // Save current position to localStorage
-            function savePosition() {
-                const rect = quickJump.getBoundingClientRect();
-                const position = {
-                    bottom: window.innerHeight - rect.bottom,
-                    right: window.innerWidth - rect.right
-                };
-                localStorage.setItem('quickJumpPosition', JSON.stringify(position));
-            }
-
-            // Load saved position on init
-            loadSavedPosition();
-
-            // Make the quick jump menu draggable
-            let isDragging = false;
-            let dragOffsetX, dragOffsetY;
-
-            // Start dragging
-            quickJump.addEventListener('mousedown', function(e) {
-                // Only start drag if clicking on the button itself or the header
-                if (e.target === quickJumpButton || e.target.closest('.quick-jump-header')) {
-                    isDragging = true;
-                    quickJump.classList.add('dragging');
-
-                    // Calculate the offset from the pointer to the element's top-left corner
-                    const rect = quickJump.getBoundingClientRect();
-                    dragOffsetX = e.clientX - rect.left;
-                    dragOffsetY = e.clientY - rect.top;
-
-                    // Prevent default behavior
-                    e.preventDefault();
-                }
-            });
-
-            // Handle dragging
-            document.addEventListener('mousemove', function(e) {
-                if (!isDragging) return;
-
-                // Calculate new position
-                const x = e.clientX - dragOffsetX;
-                const y = e.clientY - dragOffsetY;
-
-                // Calculate bottom and right values
-                const bottom = window.innerHeight - (y + quickJump.offsetHeight);
-                const right = window.innerWidth - (x + quickJump.offsetWidth);
-
-                // Apply constraints to keep the menu within viewport
-                const minMargin = 10; // Minimum margin from edges
-
-                const constrainedBottom = Math.max(minMargin, bottom);
-                const constrainedRight = Math.max(minMargin, right);
-
-                // Update position
-                quickJump.style.bottom = constrainedBottom + 'px';
-                quickJump.style.right = constrainedRight + 'px';
-            });
-
-            // End dragging
-            document.addEventListener('mouseup', function() {
-                if (isDragging) {
-                    isDragging = false;
-                    quickJump.classList.remove('dragging');
-                    savePosition();
-                }
-            });
-
-            // Touch support for mobile devices
-            quickJump.addEventListener('touchstart', function(e) {
-                if (e.target === quickJumpButton || e.target.closest('.quick-jump-header')) {
-                    isDragging = true;
-                    quickJump.classList.add('dragging');
-
-                    const touch = e.touches[0];
-                    const rect = quickJump.getBoundingClientRect();
-                    dragOffsetX = touch.clientX - rect.left;
-                    dragOffsetY = touch.clientY - rect.top;
-
-                    // Prevent scrolling while dragging
-                    e.preventDefault();
-                }
-            });
-
-            document.addEventListener('touchmove', function(e) {
-                if (!isDragging) return;
-
-                const touch = e.touches[0];
-
-                // Calculate new position
-                const x = touch.clientX - dragOffsetX;
-                const y = touch.clientY - dragOffsetY;
-
-                // Calculate bottom and right values
-                const bottom = window.innerHeight - (y + quickJump.offsetHeight);
-                const right = window.innerWidth - (x + quickJump.offsetWidth);
-
-                // Apply constraints
-                const minMargin = 10;
-                const constrainedBottom = Math.max(minMargin, bottom);
-                const constrainedRight = Math.max(minMargin, right);
-
-                // Update position
-                quickJump.style.bottom = constrainedBottom + 'px';
-                quickJump.style.right = constrainedRight + 'px';
-
-                // Prevent default to avoid scrolling
-                e.preventDefault();
-            });
-
-            document.addEventListener('touchend', function() {
-                if (isDragging) {
-                    isDragging = false;
-                    quickJump.classList.remove('dragging');
-                    savePosition();
-                }
-            });
+            // Clear any saved position from localStorage
+            localStorage.removeItem('quickJumpPosition');
 
             // Show a welcome tooltip the first time
             setTimeout(() => {
@@ -786,10 +658,8 @@
             }, 3000);
 
             function toggleQuickJump(e) {
-                if (!isDragging) {
-                    e.stopPropagation(); // Prevent event bubbling
-                    quickJumpDropdown.classList.toggle('active');
-                }
+                e.stopPropagation(); // Prevent event bubbling
+                quickJumpDropdown.classList.toggle('active');
             }
 
             quickJumpButton.addEventListener('click', toggleQuickJump);
