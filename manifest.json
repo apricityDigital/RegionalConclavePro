@@ -1,0 +1,25 @@
+{
+  "name": "Regional Growth Conclave 2025",
+  "short_name": "RGC 2025",
+  "description": "Join us at the Regional Growth Conclave 2025 under the vision of Hon'ble CM Dr. Mohan Yadavji. Shape the future of Madhya Pradesh's smart cities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0066a1",
+  "theme_color": "#0066a1",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-US",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["events", "government", "urban development"]
+}

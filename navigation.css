@@ -1,0 +1,296 @@
+/* Navigation Styles for Regional Growth Conclave Website */
+
+/* Quick Navigation Styles Only */
+
+/* Quick Jump Button */
+.quick-jump {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 998;
+}
+
+.quick-jump-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.quick-jump-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+.quick-jump-button:hover {
+    background-color: #e67e00;
+    transform: scale(1.1);
+}
+
+.pulse-animation {
+    animation: pulse-button 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-button {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.quick-jump-dropdown {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 250px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255, 140, 0, 0.2);
+    overflow: hidden;
+}
+
+.quick-jump-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.quick-jump-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.quick-jump-header span {
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quick-jump-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.quick-jump-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.quick-jump-links {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.quick-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    border-left: 3px solid transparent;
+    margin: 2px 0;
+}
+
+.quick-link i {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    color: var(--primary-color);
+    background-color: rgba(0, 102, 161, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.quick-link:hover {
+    background-color: rgba(0, 102, 161, 0.05);
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+.quick-link:hover i {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.quick-link.highlight {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.quick-link.highlight i {
+    color: var(--secondary-color);
+    background-color: rgba(255, 140, 0, 0.1);
+}
+
+.quick-link.highlight:hover {
+    background-color: rgba(255, 140, 0, 0.05);
+    border-left-color: var(--secondary-color);
+}
+
+.quick-link.highlight:hover i {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 997;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #005080;
+    transform: translateY(-5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .quick-jump {
+        bottom: 70px;
+        right: 15px;
+    }
+
+    .quick-jump-button {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+
+    .quick-jump-dropdown {
+        width: 230px;
+        bottom: 65px;
+    }
+
+    .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .quick-jump {
+        bottom: 60px;
+        right: 10px;
+    }
+
+    .quick-jump-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .quick-jump-dropdown {
+        width: 220px;
+        right: 0;
+    }
+
+    .quick-link {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .quick-link i {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+    }
+
+    .back-to-top {
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
