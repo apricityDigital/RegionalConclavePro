@@ -8,6 +8,15 @@
     bottom: 80px;
     right: 20px;
     z-index: 998;
+    cursor: move; /* Show move cursor */
+    user-select: none; /* Prevent text selection during drag */
+    touch-action: none; /* Prevent default touch actions */
+}
+
+/* Dragging state */
+.quick-jump.dragging {
+    opacity: 0.8;
+    transition: none; /* Disable transitions during drag */
 }
 
 .quick-jump-button {
@@ -102,6 +111,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: var(--secondary-color);
     color: white;
+    cursor: move; /* Show move cursor on the header */
 }
 
 .quick-jump-header span {
@@ -110,6 +120,18 @@
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.drag-handle {
+    margin-left: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    cursor: move;
+    transition: color 0.3s ease;
+}
+
+.quick-jump:hover .drag-handle {
+    color: rgba(255, 255, 255, 1);
 }
 
 .quick-jump-close {
