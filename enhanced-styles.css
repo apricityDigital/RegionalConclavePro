@@ -6,19 +6,30 @@
     padding: 5rem 0;
 }
 
+.speakers .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .speakers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 @media (min-width: 992px) {
     .speakers-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
+        gap: 2.5rem;
     }
 
     /* Add staggered animation for desktop */
@@ -54,8 +65,9 @@
     display: flex;
     flex-direction: column;
     height: 85%;
-    width: 90%;
+    width: 100%;
     border: 2px solid rgba(0, 102, 161, 0.1);
+    margin: 0 auto;
 }
 
 .speaker-card:hover, .speaker-card.hover {
@@ -542,7 +554,6 @@
     font-weight: 700;
     fill: var(--primary-color);
     transform: rotate(90deg);
-    dominant-baseline: middle; /* Ensure text is vertically centered */
     text-anchor: middle; /* Ensure text is horizontally centered */
 }
 
@@ -550,7 +561,6 @@
     font-size: 0.7rem;
     fill: var(--text-dark);
     transform: rotate(90deg);
-    dominant-baseline: middle; /* Ensure text is vertically centered */
     text-anchor: middle; /* Ensure text is horizontally centered */
 }
 
@@ -868,7 +878,15 @@
     }
 
     .speakers-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+        max-width: 600px;
+    }
+
+    .speaker-card {
+        width: 100%;
+        margin: 0 auto;
     }
 
     .timeline::before {
@@ -929,6 +947,14 @@
         padding: 0 0.3rem;
     }
 
+    /* Speaker cards for mobile */
+    .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 1rem;
+        max-width: 450px;
+    }
+
     /* Other mobile styles */
     .countdown-item {
         min-width: 60px;
@@ -974,5 +1000,17 @@
 
     .gallery-image-placeholder span {
         font-size: 0.7rem;
+    }
+
+    /* Speaker cards for extra small devices */
+    .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 0 0.8rem;
+        max-width: 350px;
+    }
+
+    .speaker-card {
+        width: 100%;
     }
 }

@@ -641,9 +641,6 @@
             const quickJumpDropdown = document.querySelector('.quick-jump-dropdown');
             const quickJumpClose = document.querySelector('.quick-jump-close');
 
-            // Clear any saved position from localStorage
-            localStorage.removeItem('quickJumpPosition');
-
             // Show a welcome tooltip the first time
             setTimeout(() => {
                 if (!localStorage.getItem('quickJumpShown')) {
@@ -696,7 +693,7 @@
             if (footerBackToTopButton) {
                 footerBackToTopButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    scrollToTop();
+                    scrollToTop(); 
                 });
             }
 
